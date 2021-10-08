@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start ;
+    
+}
+.container > div{
+    
+    height: 20em;
+    width: 10em;
+    border: 5px solid black;
+    margin-bottom: 2em;
+    
+}
+.toDoItem{
+    height: 5em;
+    border: solid black;
+    border-left: 5px;
+    border-right: 5px;
+    height: 13em;
+    overflow: hidden;
+}
+.addBtn {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    
+}
