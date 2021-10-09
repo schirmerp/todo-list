@@ -4,7 +4,7 @@ const container = document.createElement('div');
 container.setAttribute('id', 'container');
 container.className = 'container';
 body.appendChild(container);
-var dd = document.createElement('input');
+//var dd = document.createElement('input');
 
 let list = [];
 
@@ -34,13 +34,32 @@ btn.onclick = () => {
     getNewItem();
 }
 
-const work = new ItemToDo('work', '9/07/84', 1, true);
-const eat = new ItemToDo('eat', '8/23/08', 0, false);
-const bday = new ItemToDo('bday', '8/22/11', 2, true);
+//const work = new ItemToDo('work', '9/07/84', 1, true);
+//const eat = new ItemToDo('eat', '8/23/08', 0, false);
+//const bday = new ItemToDo('bday', '8/22/11', 2, true);
 
-addItem(work);
-addItem(eat);
-addItem(bday);
+//addItem(work);
+//addItem(eat);
+//addItem(bday);
+
+/*const wha = (() => {
+    lisB = document.getElementById("valueBtn");
+    lisB.onclick = () => {
+        getInput()
+    }
+})();*/
+
+function getInput(){
+    var valTitle = document.getElementById("valueTitle").value;
+    var valDate = document.getElementById("valueDate").value;
+    
+    var valP = document.getElementById("valueP").value;
+    
+    let x = new ItemToDo(valTitle,valDate, valP, false);
+    addItem(x);
+    render();
+    valTitle = '';
+}
 
 function getNewItem(){
     let e;
@@ -88,9 +107,9 @@ function render() {
         toDoTitle.textContent = item.title;
         div.appendChild(toDoTitle);
 
-        dd.setAttribute('type', 'date');
-        dd.setAttribute('id', 'dd');
-        div.appendChild(dd);
+//        dd.setAttribute('type', 'date');
+  //      dd.setAttribute('id', 'dd');
+    //    div.appendChild(dd);
 
         toDoDate.textContent = item.dueDate;
         div.appendChild(toDoDate);
