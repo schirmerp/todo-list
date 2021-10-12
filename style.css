@@ -13,7 +13,7 @@
     
 }
 .itemDiv {
-    white-space: initial;
+    word-break: break-word;
 }
 .itemDiv > button{
     display: flex;
