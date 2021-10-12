@@ -7,6 +7,8 @@ body.appendChild(container);
 //var dd = document.createElement('input');
 
 let list = [];
+let notes = [];
+
 
 let today = new Date;
 console.log(today);
@@ -93,7 +95,7 @@ function render() {
         build(list[i])
     };
 }
-    function build(item) {
+function build(item) {
         const div = document.createElement('div');
         const toDoItem = document.createElement('div');
         const toDoTitle = document.createElement('h1');
@@ -114,7 +116,7 @@ function render() {
         toDoDate.textContent = item.dueDate;
         div.appendChild(toDoDate);
 
-        toDoItem.setAttribute('id', list.indexOf(item));
+        toDoItem.setAttribute('id', `n${list.indexOf(item)}`);
         toDoItem.classList.add('toDoItem')
         div.appendChild(toDoItem);
 
@@ -123,7 +125,44 @@ function render() {
         itemBtn.innerHTML = 'add notes';
         div.appendChild(itemBtn);
         itemBtn.onclick = () => {
-            toDoItem.innerHTML += window.prompt('add notes') + '<br>';
+            mB();
+           /* miniRen();
+            */
+            function mB(){
+            const ndiv = document.createElement('div');
+            const note = document.createElement('h4');
+            const noteline = document.createElement('input')
+
+            note.textContent = window.prompt('add notes');
+            notes.push(note);
+            ndiv.setAttribute('id', `nd${notes.indexOf(item)}`);
+            ndiv.appendChild(note);
+
+            noteline.setAttribute('type', 'checkbox');
+            noteline.defaultChecked = false;
+            ndiv.appendChild(noteline); 
+            //noteline.onclick = verify();
+
+            noteline.addEventListener('click', () => {
+                
+                if(noteline.checked == true){
+                    console.log('yes')
+                    noteline.parentElement.style.textDecoration = 'line-through';
+                }else{
+                    console.log('no')
+                    noteline.parentElement.style.textDecorationLine = 'none';
+                }
+            })
+            
+            console.log(ndiv.className);
+            toDoItem.appendChild(ndiv);
+
+            
+
+
+          return notes
+            }
+            
         }
         doneButton.classList.add('doneBtn')
         div.appendChild(doneButton)
@@ -140,12 +179,39 @@ function render() {
 
         doneButton.addEventListener('click', () => {
             item.done = !item.done; 
-            build(item);
+            if(item.done == true){
+                doneButton.style.backgroundColor = 'green'
+            }else{
+                doneButton.style.backgroundColor = 'red'
+            }
 
         });
 
         
-    }
-    
+}
+
 
 //`${list[i].title} <br> ${list[i].dueDate} <br> ${list[i].priority}<br>` ;
+
+/* <input type="checkbox" id="cBox" onclick="remNote()">  
+
+const cbox = document.getElementByID("cbox")
+
+if(cbox == true){
+    toDoItem
+}else{
+
+}
+
+function miniRen(){
+                const nd = document.querySelectorAll('#nd-1')
+                const nCount = document.getElementsByClassName('toDoItem');
+                //nd.forEach(nd =>nCount.removeChild(nd));
+                while(nCount.length > 0){
+                    nCount[0].parentNode.removeChild(nCount[0]);
+                };
+                for(i=0;i<notes.length;i++){
+                    mB(notes[i])
+                }
+            } 
+*/
