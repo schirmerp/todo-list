@@ -129,17 +129,19 @@ function build(item) {
            /* miniRen();
             */
             function mB(){
-            const ndiv = document.createElement('div');
+            const ndiv = document.createElement('span');
             const note = document.createElement('h4');
             const noteline = document.createElement('input')
 
             note.textContent = window.prompt('add notes');
+            note.setAttribute('id', 'note');
             notes.push(note);
             ndiv.setAttribute('id', `nd${notes.indexOf(item)}`);
             ndiv.appendChild(note);
 
             noteline.setAttribute('type', 'checkbox');
             noteline.defaultChecked = false;
+            noteline.setAttribute('id', 'noteline');
             ndiv.appendChild(noteline); 
             //noteline.onclick = verify();
 
@@ -147,7 +149,7 @@ function build(item) {
                 
                 if(noteline.checked == true){
                     console.log('yes')
-                    noteline.parentElement.style.textDecoration = 'line-through';
+                    noteline.parentElement.style.textDecorationLine = 'line-through';
                 }else{
                     console.log('no')
                     noteline.parentElement.style.textDecorationLine = 'none';

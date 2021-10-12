@@ -25,4 +25,17 @@
     top: 1em;
     right: 1em;
     
+}   
+#nd-1 {
+    text-decoration-color: red;
+    text-decoration-thickness: 5px;
+    display: flex;
+    align-items: center;
+ 
+}
+#note{
+    align-self: center;
+}
+#noteline {
+    align-self: center;
 }
