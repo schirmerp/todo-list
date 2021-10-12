@@ -12,12 +12,17 @@
     margin-bottom: 2em;
     
 }
+.itemDiv {
+    white-space: initial;
+}
+.itemDiv > button{
+    display: flex;
+}
 .toDoItem{
-    height: 5em;
+    height: 8em;
     border: solid black;
     border-left: 5px;
     border-right: 5px;
-    height: 13em;
     overflow: hidden;
 }
 .addBtn {

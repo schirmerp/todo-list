@@ -28,13 +28,13 @@ class ItemToDo {
 };
 
 
-
+/*
 btn.className = 'addBtn'
 btn.innerHTML= 'add';
 body.appendChild(btn);
 btn.onclick = () => {
     getNewItem();
-}
+} */
 
 //const work = new ItemToDo('work', '9/07/84', 1, true);
 //const eat = new ItemToDo('eat', '8/23/08', 0, false);
@@ -54,13 +54,14 @@ btn.onclick = () => {
 function getInput(){
     var valTitle = document.getElementById("valueTitle").value;
     var valDate = document.getElementById("valueDate").value;
-    
+    const form = document.getElementById('form');
     var valP = document.getElementById("valueP").value;
     
     let x = new ItemToDo(valTitle,valDate, valP, false);
     addItem(x);
     render();
-    valTitle = '';
+    form.reset();
+
 }
 
 function getNewItem(){
@@ -102,6 +103,7 @@ function build(item) {
         const toDoDate = document.createElement('h3');
         const itemBtn = document.createElement('button');
         const doneButton = document.createElement('button');
+        const removeBtn = document.createElement('button');
         
         div.setAttribute('id', list.indexOf(item));
         div.classList.add('itemDiv');
@@ -168,6 +170,9 @@ function build(item) {
         }
         doneButton.classList.add('doneBtn')
         div.appendChild(doneButton)
+        removeBtn.classList.add('removeBtn')
+        removeBtn.textContent = 'Remove Item'
+        div.appendChild(removeBtn)
 
         container.appendChild(div);
 
@@ -183,13 +188,23 @@ function build(item) {
             item.done = !item.done; 
             if(item.done == true){
                 doneButton.style.backgroundColor = 'green'
+                doneButton.textContent= 'done'
+                doneButton.parentElement.style.backgroundColor = 'lightGreen'
             }else{
                 doneButton.style.backgroundColor = 'red'
+                doneButton.textContent = 'Not done'
+                doneButton.parentElement.style.backgroundColor = 'white';
             }
 
         });
 
-        
+        removeBtn.addEventListener('click', () => {
+            //list.splice(list[i], 1)
+            let j = removeBtn.parentElement.id;
+            list.splice(list.indexOf(item), 1);
+            render();
+            console.table(list);
+        })
 }
 
 
