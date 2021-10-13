@@ -21,6 +21,10 @@
 #valueP{
     width:10em;
 }
+.titleDiv{
+    height: 5.5em;
+    top: 0;
+}
 .toDoItem{
     height: 10em;
     border: solid black;

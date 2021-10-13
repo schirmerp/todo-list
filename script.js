@@ -98,9 +98,11 @@ function render() {
 }
 function build(item) {
         const div = document.createElement('div');
+        const titleDiv = document.createElement('div');
         const toDoItem = document.createElement('div');
         const toDoTitle = document.createElement('h1');
         const toDoDate = document.createElement('h3');
+        const btnDiv = document.createElement('div');
         const itemBtn = document.createElement('button');
         const doneButton = document.createElement('button');
         const removeBtn = document.createElement('button');
@@ -108,6 +110,7 @@ function build(item) {
         div.setAttribute('id', list.indexOf(item));
         div.classList.add('itemDiv');
 
+        
         
         if (item.priority == '1'){
                 div.classList.add('itemDiv-1');
@@ -143,25 +146,30 @@ function build(item) {
             div.classList.add('fuckadiv');
         }
         
+        titleDiv.classList.add('titleDiv');
+        div.appendChild(titleDiv)
 
         toDoTitle.textContent = item.title;
-        div.appendChild(toDoTitle);
+        titleDiv.appendChild(toDoTitle);
 
 //        dd.setAttribute('type', 'date');
   //      dd.setAttribute('id', 'dd');
     //    div.appendChild(dd);
 
         toDoDate.textContent = item.dueDate;
-        div.appendChild(toDoDate);
+        titleDiv.appendChild(toDoDate);
 
         toDoItem.setAttribute('id', `n${list.indexOf(item)}`);
         toDoItem.classList.add('toDoItem')
         div.appendChild(toDoItem);
 
+        btnDiv.classList.add('btnDiv');
+        div.appendChild(btnDiv);
+
         itemBtn.setAttribute('id', list.indexOf(item));
-        itemBtn.classList.add('itemBtn')
+        itemBtn.classList.add('itemBtn');
         itemBtn.innerHTML = 'add notes';
-        div.appendChild(itemBtn);
+        btnDiv.appendChild(itemBtn);
         itemBtn.onclick = () => {
             mB();
            /* miniRen();
@@ -182,7 +190,7 @@ function build(item) {
             noteline.setAttribute('id', 'noteline');
             ndiv.appendChild(noteline); 
             //noteline.onclick = verify();
-
+                
             noteline.addEventListener('click', () => {
                 
                 if(noteline.checked == true){
@@ -205,10 +213,10 @@ function build(item) {
             
         }
         doneButton.classList.add('doneBtn')
-        div.appendChild(doneButton)
+        btnDiv.appendChild(doneButton)
         removeBtn.classList.add('removeBtn')
         removeBtn.textContent = 'Remove Item'
-        div.appendChild(removeBtn)
+        btnDiv.appendChild(removeBtn)
 
         container.appendChild(div);
 
@@ -225,11 +233,11 @@ function build(item) {
             if(item.done == true){
                 doneButton.style.backgroundColor = 'green'
                 doneButton.textContent= 'done'
-                doneButton.parentElement.style.backgroundColor = 'lightGreen'
+                btnDiv.parentElement.style.backgroundColor = 'lightGreen'
             }else{
                 doneButton.style.backgroundColor = 'red'
                 doneButton.textContent = 'Not done'
-                doneButton.parentElement.style.backgroundColor = 'white';
+                btnDiv.parentElement.style.backgroundColor = 'white';
             }
 
         });
