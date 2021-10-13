@@ -18,12 +18,15 @@
 .itemDiv > button{
     display: flex;
 }
+#valueP{
+    width:10em;
+}
 .toDoItem{
-    height: 8em;
+    height: 10em;
     border: solid black;
     border-left: 5px;
     border-right: 5px;
-    overflow: hidden;
+    overflow: auto;
 }
 .addBtn {
     position: absolute;
@@ -43,4 +46,34 @@
 }
 #noteline {
     align-self: center;
+}
+.itemDiv-1{
+    background: rgb(255, 255, 255);
+}
+.itemDiv-2{
+    background: rgb(255, 255, 200);
+}
+.itemDiv-3{
+    background: rgb(255, 255, 190);
+}
+.itemDiv-4{
+    background: rgb(255, 255, 170);
+}
+.itemDiv-5{
+    background: rgb(255, 255, 150);
+}
+.itemDiv-6{
+    background: rgb(255, 255, 130);
+}
+.itemDiv-7{
+    background: rgb(255, 255, 110);
+}
+.itemDiv-8{
+    background: rgb(255, 255, 90);
+}
+.itemDiv-9{
+    background: rgb(255, 255, 55);
+}
+.itemDiv-10{
+    background: rgb(255, 255, 0);
 }

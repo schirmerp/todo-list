@@ -64,7 +64,7 @@ function getInput(){
 
 }
 
-function getNewItem(){
+/*function getNewItem(){
     let e;
     let d;
     let p;
@@ -78,7 +78,7 @@ function getNewItem(){
     addItem(e);
     render();
     return e;
-}
+}*/
 
 function addItem(x){
     list.push(x);
@@ -107,6 +107,42 @@ function build(item) {
         
         div.setAttribute('id', list.indexOf(item));
         div.classList.add('itemDiv');
+
+        
+        if (item.priority == '1'){
+                div.classList.add('itemDiv-1');
+            }
+        if (item.priority == '2'){
+                div.classList.add('itemDiv-2');
+            }
+        if (item.priority == '3'){
+                div.classList.add('itemDiv-3');
+            }
+        if (item.priority == '4'){
+                div.classList.add('itemDiv-4');
+            }
+        if (item.priority == '5'){
+                div.classList.add('itemDiv-5');
+            }
+        if (item.priority == '6'){
+                div.classList.add('itemDiv-6');
+            }
+        if (item.priority == '7'){
+                div.classList.add('itemDiv-7');
+            }
+        if (item.priority == '8'){
+                div.classList.add('itemDiv-8');
+            }
+        if (item.priority == '9'){
+                div.classList.add('itemDiv-9');
+            }
+        if (item.priority == '10'){
+                div.classList.add('itemDiv-10');
+            }
+        else {
+            div.classList.add('fuckadiv');
+        }
+        
 
         toDoTitle.textContent = item.title;
         div.appendChild(toDoTitle);
