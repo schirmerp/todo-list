@@ -4,7 +4,7 @@ const container = document.createElement('div');
 container.setAttribute('id', 'container');
 container.className = 'container';
 body.appendChild(container);
-//var dd = document.createElement('input');
+
 
 let list = [];
 let notes = [];
@@ -28,28 +28,6 @@ class ItemToDo {
 };
 
 
-/*
-btn.className = 'addBtn'
-btn.innerHTML= 'add';
-body.appendChild(btn);
-btn.onclick = () => {
-    getNewItem();
-} */
-
-//const work = new ItemToDo('work', '9/07/84', 1, true);
-//const eat = new ItemToDo('eat', '8/23/08', 0, false);
-//const bday = new ItemToDo('bday', '8/22/11', 2, true);
-
-//addItem(work);
-//addItem(eat);
-//addItem(bday);
-
-/*const wha = (() => {
-    lisB = document.getElementById("valueBtn");
-    lisB.onclick = () => {
-        getInput()
-    }
-})();*/
 
 function getInput(){
     var valTitle = document.getElementById("valueTitle").value;
@@ -64,21 +42,6 @@ function getInput(){
 
 }
 
-/*function getNewItem(){
-    let e;
-    let d;
-    let p;
-    let c;
-    e = window.prompt('New Event');
-    d = window.prompt('Date?');
-    p = window.prompt('Priority?');
-    c = window.prompt('true or false: completed?')
-    e = new ItemToDo(e, d, p, c);
-
-    addItem(e);
-    render();
-    return e;
-}*/
 
 function addItem(x){
     list.push(x);
@@ -157,9 +120,6 @@ function build(item) {
         toDoTitle.textContent = item.title;
         titleDiv.appendChild(toDoTitle);
 
-//        dd.setAttribute('type', 'date');
-  //      dd.setAttribute('id', 'dd');
-    //    div.appendChild(dd);
 
         toDoDate.textContent = item.dueDate;
         titleDiv.appendChild(toDoDate);
@@ -177,8 +137,6 @@ function build(item) {
         btnDiv.appendChild(itemBtn);
         itemBtn.onclick = () => {
             mB();
-           /* miniRen();
-            */
             function mB(){
             const ndiv = document.createElement('span');
             const note = document.createElement('h4');
@@ -210,10 +168,7 @@ function build(item) {
             console.log(ndiv.className);
             toDoItem.appendChild(ndiv);
 
-            
-
-
-          return notes
+            return notes
             }
             
         }
@@ -231,13 +186,14 @@ function build(item) {
         }else{
             doneButton.textContent= 'done'
             doneButton.style.backgroundColor = 'green'  
+            doneButton.parentElement.parentElement.style.backgroundColor = 'lightGreen'
         }
 
         doneButton.addEventListener('click', () => {
             item.done = !item.done; 
             if(item.done == true){
                 doneButton.style.backgroundColor = 'green'
-                doneButton.textContent= 'done'
+                doneButton.textContent= 'Done'
                 btnDiv.parentElement.style.backgroundColor = 'lightGreen'
             }else{
                 doneButton.style.backgroundColor = 'red'
@@ -248,15 +204,25 @@ function build(item) {
         });
 
         removeBtn.addEventListener('click', () => {
-            //list.splice(list[i], 1)
             let j = removeBtn.parentElement.id;
             list.splice(list.indexOf(item), 1);
             render();
+           
             console.table(list);
         })
 }
-
-
+/*
+function divColor(){
+    const divlet = document.querySelectorAll('.doneBtn')
+    divlet.forEach(button => {
+        if(button.textContent == 'Done'){
+            divlet.backgroundColor == 'green'
+        }else{
+            divlet.backgroundColor == 'white'
+        }
+    })
+} 
+*/
 //`${list[i].title} <br> ${list[i].dueDate} <br> ${list[i].priority}<br>` ;
 
 /* <input type="checkbox" id="cBox" onclick="remNote()">  
@@ -280,4 +246,45 @@ function miniRen(){
                     mB(notes[i])
                 }
             } 
+
+
+function getNewItem(){
+    let e;
+    let d;
+    let p;
+    let c;
+    e = window.prompt('New Event');
+    d = window.prompt('Date?');
+    p = window.prompt('Priority?');
+    c = window.prompt('true or false: completed?')
+    e = new ItemToDo(e, d, p, c);
+
+    addItem(e);
+    render();
+    return e;
+}
+
+btn.className = 'addBtn'
+btn.innerHTML= 'add';
+body.appendChild(btn);
+btn.onclick = () => {
+    getNewItem();
+} */
+
+//const work = new ItemToDo('work', '9/07/84', 1, true);
+//const eat = new ItemToDo('eat', '8/23/08', 0, false);
+//const bday = new ItemToDo('bday', '8/22/11', 2, true);
+
+//addItem(work);
+//addItem(eat);
+//addItem(bday);
+
+/*const wha = (() => {
+    lisB = document.getElementById("valueBtn");
+    lisB.onclick = () => {
+        getInput()
+    }
+})();
+
 */
+            
