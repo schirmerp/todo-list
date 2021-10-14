@@ -2,15 +2,20 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start ;
+    background-color: #f5e6cc;
     
 }
 .container > div{
     
     height: 20em;
     width: 10em;
-    border: 5px solid black;
+    border: 8px solid #ffb484;
+    border-radius: 5%;
     margin-bottom: 2em;
     
+}
+#addEvent{
+    background-color: #ffb484;
 }
 .itemDiv {
     word-break: break-word;
@@ -27,7 +32,7 @@
 }
 .toDoItem{
     height: 10em;
-    border: solid black;
+    border: solid #ffb484;
     border-left: 5px;
     border-right: 5px;
     overflow: auto;
@@ -81,3 +86,27 @@
 .itemDiv-10{
     background: rgb(255, 255, 0);
 }
+#deco{
+    height:5em;
+    border: 10px solid #17e9e0;
+    background-color: #17e9e0;
+
+
+}
+#deco1{
+    font-size: 3em;
+    color: #f5e6cc;
+    text-shadow: 1px 1px 3px #fccd04, 1px 1px 6px #a64ac9;
+}
+#jcode{
+    position: absolute;
+    transform: rotate(90deg);
+    bottom: 15px;
+    right: 0;
+}
+
+#a64ac9
+fccd04
+ffb484
+f5e6cc
+17e9e0
