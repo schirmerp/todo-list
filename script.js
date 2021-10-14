@@ -8,7 +8,7 @@ body.appendChild(container);
 
 let list = [];
 let notes = [];
-
+let sortedlist;
 
 let today = new Date;
 console.log(today);
@@ -88,9 +88,14 @@ function addItem(x){
 
 function render() {
     const display = document.getElementById('container');
-    const dones = document.querySelectorAll('.itemDiv');   
-    dones.forEach(itemDiv => display.removeChild(itemDiv));
+    const iDiv = document.querySelectorAll('.itemDiv');   
+    iDiv.forEach(itemDiv => display.removeChild(itemDiv));
    
+    list.sort((a, b) =>{
+        let dateA = new Date(a.dueDate);
+        let dateB = new Date(b.dueDate);
+        return dateA - dateB
+    })
 
     for(i=0; i < list.length; i++ ){
         build(list[i])
