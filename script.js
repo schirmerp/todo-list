@@ -198,7 +198,7 @@ function build(item) {
             }else{
                 doneButton.style.backgroundColor = 'red'
                 doneButton.textContent = 'Not done'
-                btnDiv.parentElement.style.backgroundColor = 'white';
+                btnDiv.parentElement.style.backgroundColor = '#f5e6cc';
             }
 
         });
@@ -218,7 +218,7 @@ function divColor(){
         if(button.textContent == 'Done'){
             divlet.backgroundColor == 'green'
         }else{
-            divlet.backgroundColor == 'white'
+            divlet.backgroundColor == '#f5e6cc'
         }
     })
 } 
